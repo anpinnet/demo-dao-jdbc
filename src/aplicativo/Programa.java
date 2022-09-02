@@ -2,6 +2,7 @@ package aplicativo;
 
 
 import java.util.List;
+import java.util.Date;
 
 import dao.FabricaDao;
 import dao.VendedorDao;
@@ -30,6 +31,11 @@ public class Programa {
 		for (Vendedor obj : list) {
 			System.out.println(obj);
 		}
+		
+		System.out.println("\n***   Teste 04 : Vendedor Inserir   ***");
+		Vendedor novo = new Vendedor(null, "Greg", "greg@gmail.com", new Date(), 4000.0, departamento);
+		vendedorDao.insert(novo);
+		System.out.println("Inserido! Novo Id : " + novo.getId());
 	}
 
 }
