@@ -1,8 +1,8 @@
 package aplicativo;
 
-
 import java.util.List;
 import java.util.Date;
+import java.util.Scanner;
 
 import dao.FabricaDao;
 import dao.VendedorDao;
@@ -13,6 +13,7 @@ public class Programa {
 
 	public static void main(String[] args) {
 		
+		Scanner sc = new Scanner(System.in);
 		VendedorDao vendedorDao = FabricaDao.criarVendedorDao();
 		
 		System.out.println("***   Teste 01 : Vendedor findById   ***");
@@ -42,6 +43,13 @@ public class Programa {
 		vendedor.setNome("Martha Waine");		
 		vendedorDao.update(vendedor);
 		System.out.println("Alteração finalizada!");
+		
+		System.out.println("\n***   Teste 06 : Vendedor Delete  ***");
+		System.out.print("Entre com Id para deleção : ");
+		int id = sc.nextInt();
+		vendedorDao.deleteById(id);
+		System.out.println("Deleção finalizada");
+		sc.close();
 	}
 
 }
